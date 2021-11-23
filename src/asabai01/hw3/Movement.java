@@ -22,7 +22,6 @@ public class Movement {
     /**
      * The game makes a step. That can either be an ant moving to any direction,
      * grabbing wood, or releasing on top of other wood.
-     *given steps to execute.
      */
     public void step() {
         displayBoard();
@@ -34,16 +33,16 @@ public class Movement {
             for (Wood wood : Woods) {
 
                 //If the ant is holding wood.
-                if (ant.isHoldingWood()){
+                if (ant.isHoldingWood()) {
                     //If the ant is on top of wood.
-                    if (ant.getX() == wood.getX() && ant.getY() == wood.getY()){
+                    if (ant.getX() == wood.getX() && ant.getY() == wood.getY()) {
                         //If the ant is on top of a default generated wood, it moves with the wood somewhere else.
                         if (ant.getX() == wood.getInitialX() && ant.getY() == wood.getInitialY()) {
                             moveWithWood(ant, wood);
                             System.out.println(ant.printAnt());
                         } else { //If the ant is holding wood and its above other wood, it releases it on top.
                             ant.releaseWood();
-                            System.out.println("Ant " + ant.getId() + " released wood at " + ant.getX() + " " + ant.getY() +"\n");
+                            System.out.println("Ant " + ant.getId() + " released wood at " + ant.getX() + " " + ant.getY() + "\n");
                         }
                     } else { //If the ant is holding wood but not above other wood, it moves while holding wood.
                         moveWithWood(ant, wood);
@@ -74,7 +73,13 @@ public class Movement {
 
     }
 
-
+    /**
+     * Algorithm that moves the ant.
+     * Different outcomes:
+     * Up, Down, Left or Right
+     *
+     * @param ant ant
+     */
     private void moveAnt(Ant ant) {
         boolean antMoved = false;
 
@@ -82,7 +87,7 @@ public class Movement {
             int randomStep = (int) (Math.random() * 4);
             switch (randomStep) {
                 case 0:
-                    if (ant.getY() == board.getSizeY()-1) {
+                    if (ant.getY() == board.getSizeY() - 1) {
                         break;
                     } else {
                         ant.moveUp();
@@ -118,6 +123,14 @@ public class Movement {
 
     }
 
+    /**
+     * Algorithm that moves the ant with the wood.
+     * Different outcomes:
+     * Up, Down, Left or Right
+     *
+     * @param ant  ant
+     * @param wood wood
+     */
     private void moveWithWood(Ant ant, Wood wood) {
         boolean antMovedWithWood = false;
 
@@ -166,11 +179,17 @@ public class Movement {
 
     }
 
+    /**
+     * Method that displays the board in a 2D Char board.
+     * Ant is represented with 'ö'
+     * Wood is represented with '='
+     * and an empty space is represented with a '.'
+     */
     public void displayBoard() {
         boolean printed = false;
         for (int i = 0; i < board.getSizeX(); i++) {
             for (int j = 0; j < board.getSizeY(); j++) {
-                for (Item item : Items){
+                for (Item item : Items) {
                     if (item.getX() == i && item.getY() == j) {
                         System.out.print(item.getCharacter() + " ");
                         printed = true;

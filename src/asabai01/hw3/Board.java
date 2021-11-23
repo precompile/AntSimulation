@@ -12,6 +12,9 @@ public class Board {
         fillBoard();
     }
 
+    /**
+     * Fills the board with default Items.
+     */
     private void fillBoard() {
         board = new Item[ sizeX ][ sizeY ];
 
@@ -31,17 +34,28 @@ public class Board {
         return sizeY;
     }
 
-
+    /**
+     * Method that places the Ant on the board.
+     *
+     * @param ant Ant.
+     */
     public void placeAnt(Ant ant) {
         board[ ant.getX() ][ ant.getY() ] = new Ant(ant.getX(), ant.getY(), ant.getId());
     }
 
-    public void placeWood(Wood wood){
-        board[ wood.getX() ][ wood.getY()] = new Wood(wood.getX(), wood.getY());
+    /**
+     * Method that places the Wood on the board.
+     *
+     * @param wood Wood.
+     */
+    public void placeWood(Wood wood) {
+        board[ wood.getX() ][ wood.getY() ] = new Wood(wood.getX(), wood.getY());
     }
 
 
-
+    public Item[][] getBoard() {
+        return board;
+    }
 
     public void resetBoard() {
         fillBoard();

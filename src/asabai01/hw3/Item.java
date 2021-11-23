@@ -12,7 +12,7 @@ public class Item {
     }
 
     public Item(int x, int y, String character) {
-        this(x,y);
+        this(x, y);
         this.character = character;
     }
 
@@ -22,8 +22,8 @@ public class Item {
     }
 
     public void moveDown() {
-       int y = this.getY() - 1;
-       this.setY(y);
+        int y = this.getY() - 1;
+        this.setY(y);
     }
 
     public void moveRight() {
@@ -35,8 +35,6 @@ public class Item {
         int x = this.getX() - 1;
         this.setX(x);
     }
-
-
 
 
     public int getX() {

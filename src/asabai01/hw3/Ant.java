@@ -1,8 +1,8 @@
 package asabai01.hw3;
 
 public class Ant extends Item {
-    private boolean isHoldingWood;
     private final int id;
+    private boolean isHoldingWood;
 
 
     public Ant(int x, int y, int id) {
@@ -10,7 +10,6 @@ public class Ant extends Item {
         this.isHoldingWood = false;
         this.id = id;
     }
-
 
 
     public boolean isHoldingWood() {
