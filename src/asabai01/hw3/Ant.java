@@ -2,7 +2,7 @@ package asabai01.hw3;
 
 public class Ant extends Item {
     private boolean isHoldingWood;
-    private int id;
+    private final int id;
 
 
     public Ant(int x, int y, int id) {

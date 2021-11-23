@@ -1,7 +1,8 @@
 package asabai01.hw3;
 
 public class Board {
-    private int sizeX, sizeY;
+    private final int sizeX;
+    private final int sizeY;
     private Item[][] board;
 
 
@@ -21,9 +22,6 @@ public class Board {
         }
     }
 
-    public Item getPosition(int x, int y) {
-        return board[ x ][ y ];
-    }
 
     public int getSizeX() {
         return sizeX;

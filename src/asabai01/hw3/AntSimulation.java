@@ -21,7 +21,7 @@ public class AntSimulation {
 
         //Generates Ants according to user input.
         for (int i = 0; i < numOfAnts; i++) {
-            Ant ant = generator.generateAnt(i);
+            Ant ant = generator.generateAnt(i+1);
             Ants.add(ant);
         }
 
@@ -36,16 +36,10 @@ public class AntSimulation {
 
         Movement movement = new Movement(board, Ants, Woods);
         while (steps != maxSteps) {
-
-            System.out.println("Step " + steps);
-            movement.step(maxSteps);
+            System.out.println("\n\n\nStep " + (steps + 1) + ":\n");
+            movement.step();
             steps++;
-            board = movement.getBoard();
-
-
         }
-
-
 
         System.out.println("Do you want to add more steps? Y/N");
         Scanner scan = new Scanner(System.in);
@@ -59,11 +53,7 @@ public class AntSimulation {
             input = Character.toUpperCase(input);
         }
 
-        if (input == 'Y') {
-            addMoreSteps = true;
-        } else {
-            addMoreSteps = false;
-        }
+        addMoreSteps = input == 'Y';
 
         int moreSteps = 0;
 
@@ -78,20 +68,13 @@ public class AntSimulation {
             }
         }
 
-        board = movement.getBoard();
-
         steps = 0;
         while (steps != moreSteps) {
-
-            System.out.println("Step " + steps);
-            movement.step(maxSteps);
+            System.out.println("\n\n\nStep " + (steps + 1 + maxSteps) + ":\n");
+            movement.step();
             steps++;
-            board = movement.getBoard();
-
         }
-
     }
-
 
 
     private void askUserInput() {
@@ -136,45 +119,11 @@ public class AntSimulation {
         System.out.println();
     }
 
-
-//    private void displayBoard(Board board){
-//        for (int i = 0; i < board.getSizeX(); i++) {
-//            for (int j = 0; j < board.getSizeY(); j++) {
-//                System.out.print(board.getPosition(i,j).getChar() + " ");
-//            }
-//            System.out.println();
-//        }
-//
-//        System.out.println("\n\n\n\n");
-//    }
-
-
-
-
-
     public static int getSizeX() {
         return sizeX;
     }
     public static int getSizeY() {
         return sizeY;
     }
-
-    public int getNumOfAnts() {
-        return numOfAnts;
-    }
-    public int getNumOfWood() {
-        return numOfWood;
-    }
-
-
-    public List <Ant> getAnts() {
-        return Ants;
-    }
-    public List <Wood> getWoods() {
-        return Woods;
-    }
-
-
-    //StdDraw.clear();
 
 }

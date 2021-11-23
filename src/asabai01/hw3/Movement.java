@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Movement {
-    private Board board;
-    private List <Ant> Ants;
-    private List <Wood> Woods;
-    private List <Item> Items;
+    private final Board board;
+    private final List <Ant> Ants;
+    private final List <Wood> Woods;
+    private final List <Item> Items;
 
     public Movement(Board board, List <Ant> ants, List <Wood> woods) {
         this.board = board;
@@ -22,11 +22,11 @@ public class Movement {
     /**
      * The game makes a step. That can either be an ant moving to any direction,
      * grabbing wood, or releasing on top of other wood.
-     *
-     * @param maxSteps The given steps to execute.
+     *given steps to execute.
      */
-    public void step(int maxSteps) {
+    public void step() {
         displayBoard();
+        System.out.println("Movement:");
         //For every ant.
         for (Ant ant : Ants) {
 
@@ -176,7 +176,6 @@ public class Movement {
                         printed = true;
                         break;
                     }
-
                 }
                 if (!printed) {
                     System.out.print(". ");
@@ -185,11 +184,8 @@ public class Movement {
             }
             System.out.println();
         }
-        System.out.println("\n\n\n");
+        System.out.println("\n");
     }
 
 
-    public Board getBoard() {
-        return board;
-    }
 }

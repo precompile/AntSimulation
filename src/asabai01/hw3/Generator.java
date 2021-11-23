@@ -4,23 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Generator {
-    private Board board = new Board(AntSimulation.getSizeX(), AntSimulation.getSizeY());
+    private final Board board = new Board(AntSimulation.getSizeX(), AntSimulation.getSizeY());
     private List<Integer> antWithPos = new ArrayList <>();
     private List<Integer> woodWithPos = new ArrayList <>();
 
     public Board getBoard() {
         return board;
     }
-
-    public List <Integer> getAntWithPos() {
-        return antWithPos;
-    }
-
-    public List <Integer> getWoodWithPos() {
-        return woodWithPos;
-    }
-
-
 
 
 

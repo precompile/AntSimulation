@@ -61,9 +61,4 @@ public class Item {
     }
 
 
-
-    public enum Type{
-        ANT,
-        WOOD
-    }
 }
